@@ -8,8 +8,8 @@ export const CONFIG = {
   coordinates: '12°58′23″N 77°35′45″E',
   contactEmail: 'transmission@ferrostudio.in',
 
-  // Google Form Link for the Paris Salon Competition (Deadlink for now)
-  competitionGoogleFormUrl: '#',
+  // Google Form Link for the Paris Salon Competition
+  competitionGoogleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeVdC-qEayUYrVlYF-n1syarj6dajKtuuRoV22M7QQ1o6QgjA/viewform',
 
   // Competition Timeline Dates
   competitionDates: {
