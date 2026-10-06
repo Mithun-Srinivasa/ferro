@@ -9,9 +9,10 @@ import {
   Sparkles,
   ExternalLink,
   Calendar,
-  Clock,
   FileCheck,
-  CheckCircle2
+  CheckCircle2,
+  GraduationCap,
+  Briefcase
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 import { CONFIG } from '../config';
@@ -56,33 +57,68 @@ export const Competition: React.FC = () => {
         </div>
 
         {/* ========================================================================= */}
-        {/* COMPETITION TIMELINE DATES BANNER */}
+        {/* COMPETITION TIMELINE DATES & SELECTION ROADMAP */}
         {/* ========================================================================= */}
-        <div className="p-6 bg-zinc-950 border border-white/20 mb-8 grid grid-cols-1 sm:grid-cols-3 gap-6 font-mono text-xs">
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-white/5 border border-white/10 text-white">
-              <Calendar className="w-4 h-4 text-emerald-400" />
+        <div className="p-6 sm:p-8 bg-zinc-950 border border-white/20 mb-8 font-mono text-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 mb-6 border-b border-white/10">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#FF3300] animate-ping" />
+              <span className="text-white font-bold uppercase tracking-widest text-xs">
+                OFFICIAL COMPETITION &amp; SELECTION SCHEDULE // AUTUMN 2026
+              </span>
             </div>
-            <div>
-              <span className="text-zinc-500 uppercase tracking-widest block text-[10px]">COMMENCEMENT DATE</span>
-              <span className="text-white font-bold text-sm">15TH SEPTEMBER 2026</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-white/5 border border-white/10 text-white">
-              <Clock className="w-4 h-4 text-[#FF3300]" />
-            </div>
-            <div>
-              <span className="text-zinc-500 uppercase tracking-widest block text-[10px]">SUBMISSION DEADLINE</span>
-              <span className="text-white font-bold text-sm">07TH OCTOBER 2026</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FF3300]/15 border border-[#FF3300]/40 text-[#FF3300] font-bold tracking-wider text-[11px] uppercase w-fit">
+              <span>{CONFIG.competitionDates.status}</span>
             </div>
           </div>
 
-          <div className="flex items-center justify-start sm:justify-end">
-            <div className="inline-flex items-center gap-2 px-3.5 py-2 bg-[#FF3300]/15 border border-[#FF3300]/40 text-[#FF3300] font-bold tracking-wider text-[11px] uppercase">
-              <span className="w-2 h-2 rounded-full bg-[#FF3300] animate-ping" />
-              <span>CLOSING 07TH OCT [23:59 IST]</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* Stage 1: Commencement */}
+            <div className="p-4 bg-white/[0.02] border border-white/10 space-y-1.5 relative group hover:border-white/30 transition-colors">
+              <div className="text-[10px] text-zinc-500 uppercase tracking-widest flex items-center justify-between">
+                <span>STAGE 01</span>
+                <span className="text-emerald-400 font-bold">COMPLETED</span>
+              </div>
+              <div className="text-white font-bold text-sm">15TH SEPT 2026</div>
+              <p className="text-zinc-400 text-[11px] leading-snug">
+                Nationwide challenge officially commenced. Creative brief launched.
+              </p>
+            </div>
+
+            {/* Stage 2: Submission Deadline */}
+            <div className="p-4 bg-[#FF3300]/10 border border-[#FF3300]/50 space-y-1.5 relative group hover:border-[#FF3300] transition-colors shadow-[0_0_20px_rgba(255,51,0,0.1)]">
+              <div className="text-[10px] text-[#FF3300] uppercase tracking-widest flex items-center justify-between font-bold">
+                <span>STAGE 02</span>
+                <span className="animate-pulse">DEADLINE TOMORROW</span>
+              </div>
+              <div className="text-white font-bold text-sm">07TH OCT 2026</div>
+              <p className="text-zinc-300 text-[11px] leading-snug">
+                Portal closes strictly at <strong>23:59 IST</strong>. Verification begins.
+              </p>
+            </div>
+
+            {/* Stage 3: Results Announcement */}
+            <div className="p-4 bg-white/[0.02] border border-white/10 space-y-1.5 relative group hover:border-white/30 transition-colors">
+              <div className="text-[10px] text-zinc-500 uppercase tracking-widest flex items-center justify-between">
+                <span>STAGE 03</span>
+                <span className="text-[#FF3300] font-bold">RESULTS</span>
+              </div>
+              <div className="text-white font-bold text-sm">14TH OCT 2026</div>
+              <p className="text-zinc-400 text-[11px] leading-snug">
+                Results announced. <strong>Top 10 shortlisted finalists</strong> revealed.
+              </p>
+            </div>
+
+            {/* Stage 4: Interviews & Offer Letters */}
+            <div className="p-4 bg-white/[0.02] border border-white/10 space-y-1.5 relative group hover:border-white/30 transition-colors">
+              <div className="text-[10px] text-zinc-500 uppercase tracking-widest flex items-center justify-between">
+                <span>STAGE 04</span>
+                <span className="text-emerald-400 font-bold">3 HIRES</span>
+              </div>
+              <div className="text-white font-bold text-sm">15TH–16TH OCT 2026</div>
+              <p className="text-zinc-400 text-[11px] leading-snug">
+                Top 10 interviews held. <strong>Offer letters sent by end of October</strong>.
+              </p>
             </div>
           </div>
         </div>
@@ -93,7 +129,7 @@ export const Competition: React.FC = () => {
             OFFICIAL DESIGN BRIEF // AUTUMN 2026
           </div>
 
-          <div className="max-w-4xl space-y-6 pt-4">
+          <div className="max-w-5xl space-y-8 pt-4">
             <blockquote className="font-['Cormorant_Garamond'] italic text-3xl sm:text-5xl text-white font-light leading-snug">
               “Imagine you are designing 5 pieces for models of your imagination and they are going to be walking in Paris fashion week.”
             </blockquote>
@@ -102,17 +138,48 @@ export const Competition: React.FC = () => {
               We are hosting a nationwide challenge for visionary young fashion designers across India. The contestants have a lot of creative freedom to sculpt the proportions, invent the drape, and rethink modern silhouette architecture.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/10 font-mono text-xs">
-              <div className="space-y-1">
-                <span className="text-[#FF3300] font-bold uppercase tracking-widest">THE OFFER / PRIZE:</span>
-                <p className="text-zinc-200">
-                  Full-time paid atelier contract in our Bangalore office alongside our core 12-member team. Full budget to materially construct your winning look.
+            {/* Ethos Callout Banner */}
+            <div className="p-5 bg-black border border-white/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <Sparkles className="w-5 h-5 text-[#FF3300] shrink-0" />
+                <span className="font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl text-white font-light">
+                  “{CONFIG.competitionDates.mission}”
+                </span>
+              </div>
+              <span className="font-mono text-[10px] text-[#FF3300] uppercase tracking-widest bg-[#FF3300]/10 px-3 py-1 border border-[#FF3300]/30 shrink-0">
+                FERRO ATELIER VISION
+              </span>
+            </div>
+
+            {/* 3 Pillars: Hiring Target, Zero Degree, Interview Roadmap */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 pt-4 border-t border-white/10 font-mono text-xs">
+              <div className="p-5 bg-zinc-900/70 border border-white/10 space-y-2.5">
+                <div className="flex items-center gap-2 text-[#FF3300] font-bold uppercase tracking-widest text-[11px]">
+                  <Briefcase className="w-4 h-4" />
+                  <span>3 YOUNG FASHION DESIGNERS</span>
+                </div>
+                <p className="text-zinc-200 text-xs leading-relaxed">
+                  The competition is specifically for hiring <strong>3 young fashion designers</strong> into full-time paid atelier contracts at our Bangalore studio, working directly with our 12-person core unit.
                 </p>
               </div>
-              <div className="space-y-1">
-                <span className="text-white font-bold uppercase tracking-widest">ELIGIBILITY:</span>
-                <p className="text-zinc-400">
-                  Designers, pattern-makers, or fashion students based in India. Must be under 30 years old.
+
+              <div className="p-5 bg-zinc-900/70 border border-white/10 space-y-2.5">
+                <div className="flex items-center gap-2 text-white font-bold uppercase tracking-widest text-[11px]">
+                  <GraduationCap className="w-4 h-4 text-emerald-400" />
+                  <span>ZERO DEGREE REQUIREMENT</span>
+                </div>
+                <p className="text-zinc-300 text-xs leading-relaxed">
+                  Even if you do not possess a formal fashion degree, <strong>we will hire you purely based on raw talent, taste, and how well you fit our vision</strong>. Real craft and instinct over paper credentials.
+                </p>
+              </div>
+
+              <div className="p-5 bg-zinc-900/70 border border-white/10 space-y-2.5">
+                <div className="flex items-center gap-2 text-white font-bold uppercase tracking-widest text-[11px]">
+                  <Calendar className="w-4 h-4 text-blue-400" />
+                  <span>TOP 10 INTERVIEWS &amp; OFFERS</span>
+                </div>
+                <p className="text-zinc-300 text-xs leading-relaxed">
+                  Results announced on <strong>14th October</strong>. The <strong>top 10 candidates</strong> will be interviewed on <strong>15th–16th October</strong>, receiving official offer letters by the <strong>end of the month</strong>.
                 </p>
               </div>
             </div>
@@ -289,9 +356,11 @@ export const Competition: React.FC = () => {
               </h3>
             </div>
 
-            <div className="font-mono text-xs text-zinc-400 text-left sm:text-right">
-              <div>COMMENCED: <span className="text-white">15 SEPT 2026</span></div>
+            <div className="font-mono text-xs text-zinc-400 text-left sm:text-right space-y-0.5">
               <div>DEADLINE: <span className="text-[#FF3300] font-bold">07 OCT 2026 [23:59 IST]</span></div>
+              <div>RESULTS: <span className="text-white font-bold">14 OCT 2026</span></div>
+              <div>INTERVIEWS: <span className="text-white font-bold">15–16 OCT 2026</span></div>
+              <div>OFFERS: <span className="text-emerald-400 font-bold">END OF OCT 2026</span></div>
             </div>
           </div>
 
@@ -346,8 +415,9 @@ export const Competition: React.FC = () => {
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
 
-                <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-wider">
-                  DEADLINE: 07TH OCTOBER 2026 • STRICT ZERO-AI VERIFICATION
+                <div className="font-mono text-[10px] text-zinc-500 uppercase tracking-wider space-y-1">
+                  <div>HIRING 3 YOUNG DESIGNERS • ZERO DEGREE REQUIREMENT • ZERO-AI VERIFIED</div>
+                  <div className="text-zinc-400 italic normal-case font-['Cormorant_Garamond'] text-xs">“{CONFIG.competitionDates.mission}”</div>
                 </div>
               </div>
             </div>
