@@ -13,7 +13,7 @@ export const SectionDivider: React.FC<SectionDividerProps> = ({
   reverse = false,
 }) => {
   return (
-    <div className="relative w-full overflow-hidden border-y border-white/10 bg-[#070709] py-3 select-none">
+    <div className="relative w-full max-w-full overflow-hidden border-y border-white/10 bg-[#070709] py-3 select-none">
       {/* Animated Laser Scanning Line */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF3300]/80 to-transparent animate-pulse" />
 

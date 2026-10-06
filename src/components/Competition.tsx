@@ -124,7 +124,7 @@ export const Competition: React.FC = () => {
         </div>
 
         {/* The Official Creative Prompt Box */}
-        <div className="p-8 sm:p-12 bg-zinc-950 border-2 border-white/20 mb-12 relative overflow-hidden">
+        <div className="p-5 sm:p-10 lg:p-12 bg-zinc-950 border-2 border-white/20 mb-12 relative overflow-hidden">
           <div className="absolute top-4 left-4 font-mono text-[10px] text-zinc-500 uppercase tracking-widest">
             OFFICIAL DESIGN BRIEF // AUTUMN 2026
           </div>
@@ -342,7 +342,7 @@ export const Competition: React.FC = () => {
         {/* ========================================================================= */}
         {/* OFFICIAL GOOGLE FORM SUBMISSION PORTAL CARD (NO EMBEDDED FORM) */}
         {/* ========================================================================= */}
-        <div className="bg-zinc-950 border-2 border-white/20 p-8 sm:p-12 relative text-left space-y-8">
+        <div className="bg-zinc-950 border-2 border-white/20 p-5 sm:p-10 lg:p-12 relative text-left space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
