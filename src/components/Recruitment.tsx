@@ -60,9 +60,6 @@ export const Recruitment: React.FC = () => {
                 <h2 className="font-['Syne'] text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-[0.9]">
                   WE WANT YOU.
                 </h2>
-                <div className="font-['Cormorant_Garamond'] italic text-2xl sm:text-3xl text-zinc-400 font-light">
-                  "14 Open Seats. Built by the youth. Governed by raw obsession."
-                </div>
               </div>
 
               <p className="text-zinc-300 font-sans text-sm sm:text-base max-w-2xl leading-relaxed">

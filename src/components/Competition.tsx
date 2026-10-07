@@ -15,7 +15,6 @@ import {
   Briefcase,
   Clock,
   Radio,
-  Activity,
   Flame
 } from 'lucide-react';
 import { sound } from '../utils/audio';
@@ -48,19 +47,6 @@ export const Competition: React.FC = () => {
 
   const currentCount = getSubmissionsCount(now);
   const isExpired = now >= DEADLINE_MS;
-
-  const recentOrigins = [
-    { city: 'Bengaluru', state: 'KA' },
-    { city: 'Mumbai', state: 'MH' },
-    { city: 'New Delhi', state: 'DL' },
-    { city: 'Jaipur', state: 'RJ' },
-    { city: 'Kolkata', state: 'WB' },
-    { city: 'Hyderabad', state: 'TS' },
-    { city: 'Ahmedabad', state: 'GJ' },
-    { city: 'Chennai', state: 'TN' },
-    { city: 'Pune', state: 'MH' },
-    { city: 'Chandigarh', state: 'CH' }
-  ];
 
   // Remaining time calculation
   const diffMs = Math.max(0, DEADLINE_MS - now);
@@ -133,7 +119,7 @@ export const Competition: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* LEFT: LIVE SUBMISSIONS INGESTED TELEMETRY (7 Cols) */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3">
                   <div className="flex items-center gap-2">
@@ -165,53 +151,7 @@ export const Competition: React.FC = () => {
                       <Flame className="w-3.5 h-3.5" />
                       <span>{isExpired ? 'FINAL SUBMISSIONS RECORDED' : 'DOSSIERS INGESTED NATIONWIDE'}</span>
                     </div>
-                    <div className="font-mono text-[11px] text-zinc-400">
-                      {isExpired 
-                        ? 'Portal sealed strictly at 23:59 IST • Zero-AI human authorship review begins' 
-                        : 'Nationwide candidate portfolios • Incoming live feed across all regions'}
-                    </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Live Organic Transmission Feed (No Capacity Cap / No Percentage) */}
-              <div className="space-y-3 pt-3 border-t border-white/10">
-                <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[10px] text-zinc-400">
-                  <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-white font-bold uppercase tracking-wider">
-                      {isExpired ? 'INGESTION CONCLUDED' : 'RANDOM TRANSMISSION STREAM ACTIVE'}
-                    </span>
-                  </div>
-                  <span className="text-zinc-500 uppercase">
-                    {isExpired ? 'FINAL TALLY SEALED' : 'UNRESTRICTED OPEN INTAKE'}
-                  </span>
-                </div>
-
-                {/* Dynamic Transmission Activity Log */}
-                <div className="p-3 bg-zinc-900/60 border border-white/10 font-mono text-xs space-y-1.5">
-                  <div className="flex items-center justify-between text-[11px]">
-                    <span className="text-zinc-300 flex items-center gap-2">
-                      <Activity className="w-3.5 h-3.5 text-[#FF3300]" />
-                      <span>LATEST INCOMING TRANSMISSION:</span>
-                    </span>
-                    <span className="text-[#FF3300] font-bold">
-                      {isExpired ? 'STREAM SEALED' : 'JUST RECEIVED'}
-                    </span>
-                  </div>
-                  <div className="text-white font-mono text-xs flex flex-wrap items-center justify-between gap-1">
-                    <span>
-                      DOSSIER #{currentCount} • {recentOrigins[currentCount % recentOrigins.length].city}, {recentOrigins[currentCount % recentOrigins.length].state}
-                    </span>
-                    <span className="text-zinc-500 text-[10px]">
-                      {isExpired ? 'LOGGED FOR JURY' : 'QUEUED FOR VERIFICATION'}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-between font-mono text-[10px] text-zinc-500">
-                  <span>CADENCE: VARIABLE INTAKE RATE</span>
-                  <span className="text-zinc-400">BANGALORE HQ • ON-SITE ATELIER SEATS</span>
                 </div>
               </div>
             </div>
