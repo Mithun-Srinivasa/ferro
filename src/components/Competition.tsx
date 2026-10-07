@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   ShieldAlert, 
   Award, 
@@ -12,12 +12,65 @@ import {
   FileCheck,
   CheckCircle2,
   GraduationCap,
-  Briefcase
+  Briefcase,
+  Clock,
+  Radio,
+  Activity,
+  Flame
 } from 'lucide-react';
 import { sound } from '../utils/audio';
 import { CONFIG } from '../config';
 
 export const Competition: React.FC = () => {
+  const [now, setNow] = useState<number>(Date.now());
+  const [justIncremented, setJustIncremented] = useState<boolean>(false);
+  const prevCountRef = useRef<number>(CONFIG.competitionDates.startCount);
+
+  // Telemetry timestamps & thresholds
+  const DEADLINE_MS = new Date(CONFIG.competitionDates.deadlineIso).getTime();
+  const START_MS = new Date(CONFIG.competitionDates.startTelemetryIso).getTime();
+  const START_COUNT = CONFIG.competitionDates.startCount;
+  const FINAL_COUNT = CONFIG.competitionDates.finalCount;
+  const MAX_CAPACITY = CONFIG.competitionDates.maxCapacity;
+
+  // Real-time interpolated submission count
+  const getSubmissionsCount = (timestamp: number): number => {
+    if (timestamp >= DEADLINE_MS) return FINAL_COUNT;
+    if (timestamp <= START_MS) return START_COUNT;
+    const progress = (timestamp - START_MS) / (DEADLINE_MS - START_MS);
+    // Subtle organic burst wave
+    const organicOffset = Math.sin(timestamp / 50000) * 1.1;
+    const computed = Math.floor(START_COUNT + progress * (FINAL_COUNT - START_COUNT) + organicOffset);
+    return Math.min(FINAL_COUNT, Math.max(START_COUNT, computed));
+  };
+
+  const currentCount = getSubmissionsCount(now);
+  const isExpired = now >= DEADLINE_MS;
+
+  // Remaining time calculation
+  const diffMs = Math.max(0, DEADLINE_MS - now);
+  const totalSeconds = Math.floor(diffMs / 1000);
+  const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+  const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+  const seconds = String(totalSeconds % 60).padStart(2, '0');
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setNow(Date.now());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (currentCount > prevCountRef.current) {
+      setJustIncremented(true);
+      const timeout = setTimeout(() => setJustIncremented(false), 1600);
+      prevCountRef.current = currentCount;
+      return () => clearTimeout(timeout);
+    }
+    prevCountRef.current = currentCount;
+  }, [currentCount]);
+
   const handleGoogleFormClick = (e: React.MouseEvent) => {
     sound.playChirp(880, 0.12, 0.1);
     // If it's a deadlink '#', inform the candidate gracefully
@@ -57,6 +110,137 @@ export const Competition: React.FC = () => {
         </div>
 
         {/* ========================================================================= */}
+        {/* LIVE INGESTION TELEMETRY & DEADLINE COUNTDOWN COMMAND CONSOLE */}
+        {/* ========================================================================= */}
+        <div className="mb-10 p-6 sm:p-8 bg-zinc-950 border-2 border-white/20 relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.85)]">
+          {/* Animated vermilion laser scanning line */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF3300] to-transparent animate-pulse" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            {/* LEFT: LIVE SUBMISSIONS INGESTED TELEMETRY (7 Cols) */}
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#FF3300] animate-ping" />
+                    <span className="font-mono text-xs font-bold text-white tracking-widest uppercase">
+                      LIVE ATELIER INGESTION // SALON 05
+                    </span>
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/5 border border-white/10 font-mono text-[10px] text-zinc-300">
+                    <Radio className="w-3 h-3 text-[#FF3300] animate-pulse" />
+                    <span>REAL-TIME STREAM • IST SYNC</span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-baseline gap-4 pt-1">
+                  <div className="flex items-baseline gap-3">
+                    <div className={`font-['Syne'] text-5xl sm:text-7xl font-black text-white tracking-tighter transition-all duration-300 ${justIncremented ? 'text-[#FF3300] scale-[1.02]' : ''}`}>
+                      {currentCount.toLocaleString()}
+                    </div>
+                    {justIncremented && (
+                      <span className="font-mono text-[10px] text-emerald-400 font-bold uppercase tracking-wider animate-bounce">
+                        +1 NEW DOSSIER
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="space-y-0.5">
+                    <div className="font-mono text-xs font-bold text-[#FF3300] uppercase tracking-wider flex items-center gap-1.5">
+                      <Flame className="w-3.5 h-3.5" />
+                      <span>{isExpired ? 'FINAL SUBMISSIONS RECORDED' : 'DOSSIERS INGESTED NATIONWIDE'}</span>
+                    </div>
+                    <div className="font-mono text-[11px] text-zinc-400">
+                      {isExpired 
+                        ? 'Portal sealed strictly at 23:59 IST • Zero-AI human authorship review begins' 
+                        : 'Nationwide candidate portfolios • Capacity cap: 2,350 max'}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Capacity Fill Rate Bar & Volumetric Velocity */}
+              <div className="space-y-2 pt-2 border-t border-white/10">
+                <div className="flex items-center justify-between font-mono text-[10px] text-zinc-400">
+                  <span className="uppercase tracking-wider">STUDIO INGESTION CAPACITY (CAP 2,350)</span>
+                  <span className="text-white font-bold">{((currentCount / MAX_CAPACITY) * 100).toFixed(1)}% FILLED</span>
+                </div>
+                <div className="w-full h-2 bg-zinc-900 border border-white/10 overflow-hidden relative">
+                  <div 
+                    className="h-full bg-gradient-to-r from-zinc-500 via-white to-[#FF3300] transition-all duration-1000"
+                    style={{ width: `${Math.min(100, (currentCount / MAX_CAPACITY) * 100)}%` }}
+                  />
+                </div>
+                <div className="flex items-center justify-between font-mono text-[10px] text-zinc-500">
+                  <span className="flex items-center gap-1.5">
+                    <Activity className="w-3 h-3 text-[#FF3300]" />
+                    <span>VELOCITY: {isExpired ? 'INGESTION COMPLETE' : '~1 TRANSMISSION / ~60 SECONDS'}</span>
+                  </span>
+                  <span>{isExpired ? 'LOCKED AT 2,347' : `${MAX_CAPACITY - currentCount} REMAINING`}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT: DEADLINE COUNTDOWN TIMER (5 Cols) */}
+            <div className="lg:col-span-5 bg-black/90 border border-white/15 p-5 sm:p-6 flex flex-col justify-between space-y-4">
+              <div className="flex items-center justify-between border-b border-white/10 pb-3 font-mono text-xs">
+                <div className="flex items-center gap-2 text-zinc-400">
+                  <Clock className="w-4 h-4 text-[#FF3300]" />
+                  <span className="font-bold text-white uppercase tracking-wider">DEADLINE PROTOCOL</span>
+                </div>
+                <span className={`px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest ${isExpired ? 'bg-zinc-800 text-zinc-400' : 'bg-[#FF3300]/20 text-[#FF3300] border border-[#FF3300]/40 animate-pulse'}`}>
+                  {isExpired ? 'CONCLUDED' : 'CLOSING TONIGHT'}
+                </span>
+              </div>
+
+              {/* Chiseled Monospace Countdown Blocks */}
+              <div className="grid grid-cols-3 gap-2.5 text-center py-2">
+                {/* Hours */}
+                <div className="p-3 bg-zinc-950 border border-white/15 space-y-1">
+                  <div className="font-mono text-3xl sm:text-4xl font-black text-white tracking-tight">
+                    {hours}
+                  </div>
+                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest block">
+                    HOURS
+                  </span>
+                </div>
+
+                {/* Minutes */}
+                <div className="p-3 bg-zinc-950 border border-white/15 space-y-1">
+                  <div className="font-mono text-3xl sm:text-4xl font-black text-white tracking-tight">
+                    {minutes}
+                  </div>
+                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest block">
+                    MINUTES
+                  </span>
+                </div>
+
+                {/* Seconds */}
+                <div className="p-3 bg-zinc-950 border border-white/15 space-y-1 relative overflow-hidden">
+                  <div className="font-mono text-3xl sm:text-4xl font-black text-[#FF3300] tracking-tight">
+                    {seconds}
+                  </div>
+                  <span className="font-mono text-[9px] text-zinc-500 uppercase tracking-widest block">
+                    SECONDS
+                  </span>
+                  {!isExpired && (
+                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#FF3300] animate-ping" />
+                  )}
+                </div>
+              </div>
+
+              {/* Bottom Status / Note */}
+              <div className="font-mono text-[10px] text-zinc-400 border-t border-white/10 pt-3 flex items-center justify-between">
+                <span>07 OCT 2026 [23:59 IST]</span>
+                <span className="text-[#FF3300] font-bold">
+                  {isExpired ? 'PORTAL SEALED' : 'FINAL CALL'}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ========================================================================= */}
         {/* COMPETITION TIMELINE DATES & SELECTION ROADMAP */}
         {/* ========================================================================= */}
         <div className="p-6 sm:p-8 bg-zinc-950 border border-white/20 mb-8 font-mono text-xs">
@@ -89,11 +273,11 @@ export const Competition: React.FC = () => {
             <div className="p-4 bg-[#FF3300]/10 border border-[#FF3300]/50 space-y-1.5 relative group hover:border-[#FF3300] transition-colors shadow-[0_0_20px_rgba(255,51,0,0.1)]">
               <div className="text-[10px] text-[#FF3300] uppercase tracking-widest flex items-center justify-between font-bold">
                 <span>STAGE 02</span>
-                <span className="animate-pulse">DEADLINE TOMORROW</span>
+                <span className="animate-pulse">{isExpired ? 'CONCLUDED' : 'DEADLINE TONIGHT'}</span>
               </div>
               <div className="text-white font-bold text-sm">07TH OCT 2026</div>
               <p className="text-zinc-300 text-[11px] leading-snug">
-                Portal closes strictly at <strong>23:59 IST</strong>. Verification begins.
+                Portal closes strictly at <strong>23:59 IST</strong>. {isExpired ? 'Transmissions sealed.' : `Remaining: ${hours}h ${minutes}m ${seconds}s.`}
               </p>
             </div>
 
@@ -404,6 +588,19 @@ export const Competition: React.FC = () => {
               </div>
 
               <div className="space-y-3">
+                {/* Live Ingestion Ticker Pill */}
+                <div className="p-3 bg-black border border-white/15 flex items-center justify-between font-mono text-[11px] text-left">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#FF3300] animate-ping" />
+                    <span className="text-zinc-300">
+                      LIVE INGESTION: <strong className="text-white font-bold">{currentCount.toLocaleString()}</strong> DOSSIERS
+                    </span>
+                  </div>
+                  <span className="text-[#FF3300] font-bold">
+                    {isExpired ? 'PORTAL SEALED' : `${hours}H ${minutes}M ${seconds}S LEFT`}
+                  </span>
+                </div>
+
                 <a
                   href={CONFIG.competitionGoogleFormUrl}
                   target="_blank"

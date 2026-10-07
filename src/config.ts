@@ -15,7 +15,12 @@ export const CONFIG = {
   competitionDates: {
     started: '15th September 2026',
     ends: '07th October 2026',
-    status: 'ACTIVE // DEADLINE TOMORROW, 23:59 IST',
+    deadlineIso: '2026-10-07T23:59:59+05:30',
+    startTelemetryIso: '2026-10-07T19:42:00+05:30',
+    startCount: 2093,
+    finalCount: 2347,
+    maxCapacity: 2350,
+    status: 'ACTIVE // DEADLINE TONIGHT, 23:59 IST',
     resultsDate: '14th October 2026',
     interviewsDate: '15th–16th October 2026',
     offersDate: 'End of October 2026',
