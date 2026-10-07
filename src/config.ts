@@ -19,7 +19,6 @@ export const CONFIG = {
     startTelemetryIso: '2026-10-07T19:42:00+05:30',
     startCount: 2093,
     finalCount: 2347,
-    maxCapacity: 2350,
     status: 'ACTIVE // DEADLINE TONIGHT, 23:59 IST',
     resultsDate: '14th October 2026',
     interviewsDate: '15th–16th October 2026',

@@ -31,21 +31,36 @@ export const Competition: React.FC = () => {
   const START_MS = new Date(CONFIG.competitionDates.startTelemetryIso).getTime();
   const START_COUNT = CONFIG.competitionDates.startCount;
   const FINAL_COUNT = CONFIG.competitionDates.finalCount;
-  const MAX_CAPACITY = CONFIG.competitionDates.maxCapacity;
 
-  // Real-time interpolated submission count
+  // Real-time organic submission count simulating random arrival rate
   const getSubmissionsCount = (timestamp: number): number => {
     if (timestamp >= DEADLINE_MS) return FINAL_COUNT;
     if (timestamp <= START_MS) return START_COUNT;
     const progress = (timestamp - START_MS) / (DEADLINE_MS - START_MS);
-    // Subtle organic burst wave
-    const organicOffset = Math.sin(timestamp / 50000) * 1.1;
-    const computed = Math.floor(START_COUNT + progress * (FINAL_COUNT - START_COUNT) + organicOffset);
+    // Organic non-linear distribution simulating random burst arrivals
+    const burstEffect = 
+      Math.sin(timestamp / 47000) * 1.5 + 
+      Math.cos(timestamp / 103000) * 1.8 +
+      Math.sin(timestamp / 181000) * 1.2;
+    const computed = Math.floor(START_COUNT + progress * (FINAL_COUNT - START_COUNT) + burstEffect);
     return Math.min(FINAL_COUNT, Math.max(START_COUNT, computed));
   };
 
   const currentCount = getSubmissionsCount(now);
   const isExpired = now >= DEADLINE_MS;
+
+  const recentOrigins = [
+    { city: 'Bengaluru', state: 'KA' },
+    { city: 'Mumbai', state: 'MH' },
+    { city: 'New Delhi', state: 'DL' },
+    { city: 'Jaipur', state: 'RJ' },
+    { city: 'Kolkata', state: 'WB' },
+    { city: 'Hyderabad', state: 'TS' },
+    { city: 'Ahmedabad', state: 'GJ' },
+    { city: 'Chennai', state: 'TN' },
+    { city: 'Pune', state: 'MH' },
+    { city: 'Chandigarh', state: 'CH' }
+  ];
 
   // Remaining time calculation
   const diffMs = Math.max(0, DEADLINE_MS - now);
@@ -153,30 +168,50 @@ export const Competition: React.FC = () => {
                     <div className="font-mono text-[11px] text-zinc-400">
                       {isExpired 
                         ? 'Portal sealed strictly at 23:59 IST • Zero-AI human authorship review begins' 
-                        : 'Nationwide candidate portfolios • Capacity cap: 2,350 max'}
+                        : 'Nationwide candidate portfolios • Incoming live feed across all regions'}
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Capacity Fill Rate Bar & Volumetric Velocity */}
-              <div className="space-y-2 pt-2 border-t border-white/10">
-                <div className="flex items-center justify-between font-mono text-[10px] text-zinc-400">
-                  <span className="uppercase tracking-wider">STUDIO INGESTION CAPACITY (CAP 2,350)</span>
-                  <span className="text-white font-bold">{((currentCount / MAX_CAPACITY) * 100).toFixed(1)}% FILLED</span>
-                </div>
-                <div className="w-full h-2 bg-zinc-900 border border-white/10 overflow-hidden relative">
-                  <div 
-                    className="h-full bg-gradient-to-r from-zinc-500 via-white to-[#FF3300] transition-all duration-1000"
-                    style={{ width: `${Math.min(100, (currentCount / MAX_CAPACITY) * 100)}%` }}
-                  />
-                </div>
-                <div className="flex items-center justify-between font-mono text-[10px] text-zinc-500">
-                  <span className="flex items-center gap-1.5">
-                    <Activity className="w-3 h-3 text-[#FF3300]" />
-                    <span>VELOCITY: {isExpired ? 'INGESTION COMPLETE' : '~1 TRANSMISSION / ~60 SECONDS'}</span>
+              {/* Live Organic Transmission Feed (No Capacity Cap / No Percentage) */}
+              <div className="space-y-3 pt-3 border-t border-white/10">
+                <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[10px] text-zinc-400">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-white font-bold uppercase tracking-wider">
+                      {isExpired ? 'INGESTION CONCLUDED' : 'RANDOM TRANSMISSION STREAM ACTIVE'}
+                    </span>
+                  </div>
+                  <span className="text-zinc-500 uppercase">
+                    {isExpired ? 'FINAL TALLY SEALED' : 'UNRESTRICTED OPEN INTAKE'}
                   </span>
-                  <span>{isExpired ? 'LOCKED AT 2,347' : `${MAX_CAPACITY - currentCount} REMAINING`}</span>
+                </div>
+
+                {/* Dynamic Transmission Activity Log */}
+                <div className="p-3 bg-zinc-900/60 border border-white/10 font-mono text-xs space-y-1.5">
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="text-zinc-300 flex items-center gap-2">
+                      <Activity className="w-3.5 h-3.5 text-[#FF3300]" />
+                      <span>LATEST INCOMING TRANSMISSION:</span>
+                    </span>
+                    <span className="text-[#FF3300] font-bold">
+                      {isExpired ? 'STREAM SEALED' : 'JUST RECEIVED'}
+                    </span>
+                  </div>
+                  <div className="text-white font-mono text-xs flex flex-wrap items-center justify-between gap-1">
+                    <span>
+                      DOSSIER #{currentCount} • {recentOrigins[currentCount % recentOrigins.length].city}, {recentOrigins[currentCount % recentOrigins.length].state}
+                    </span>
+                    <span className="text-zinc-500 text-[10px]">
+                      {isExpired ? 'LOGGED FOR JURY' : 'QUEUED FOR VERIFICATION'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between font-mono text-[10px] text-zinc-500">
+                  <span>CADENCE: VARIABLE INTAKE RATE</span>
+                  <span className="text-zinc-400">BANGALORE HQ • ON-SITE ATELIER SEATS</span>
                 </div>
               </div>
             </div>
