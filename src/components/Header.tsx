@@ -82,6 +82,9 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, activeSection }) => 
               >
                 <span className="text-[10px] text-zinc-500">{item.num}</span>
                 <span>{item.label}</span>
+                {item.id === 'competition' && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF3300] animate-ping ml-0.5" />
+                )}
               </button>
             ))}
           </nav>

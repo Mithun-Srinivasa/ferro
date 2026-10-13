@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 pt-4 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-zinc-400 border-b border-white/5 pb-3">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#FF3300] animate-ping" />
-          <span className="tracking-widest uppercase text-white font-semibold">STUDIO TRANSMISSION // 2026</span>
+          <span className="tracking-widest uppercase text-white font-semibold">STUDIO TRANSMISSION // 14 OCT 2026 • RESULTS DECLARED</span>
         </div>
         <div className="flex items-center gap-4 text-[11px] tracking-wider">
           <span className="hidden sm:inline">ORIGIN: BENGALURU, INDIA</span>
@@ -85,7 +85,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               }}
               className="px-6 py-4 bg-white text-black font-mono text-xs font-bold tracking-widest uppercase hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 group shadow-[0_0_25px_rgba(255,255,255,0.2)]"
             >
-              <span>ENTER PARIS SALON CHALLENGE</span>
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#FF3300] animate-ping" />
+                <span>SALON 05 // TOP 10 WINNERS</span>
+              </span>
               <Compass className="w-4 h-4 group-hover:rotate-45 transition-transform" />
             </button>
 

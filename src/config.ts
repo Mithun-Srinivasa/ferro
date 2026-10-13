@@ -19,7 +19,7 @@ export const CONFIG = {
     startTelemetryIso: '2026-10-07T20:00:00+05:30',
     startCount: 776,
     finalCount: 982,
-    status: 'ACTIVE // DEADLINE TONIGHT, 23:59 IST',
+    status: 'RESULTS ANNOUNCED // 10 FINALISTS SHORTLISTED',
     resultsDate: '14th October 2026',
     interviewsDate: '15th–16th October 2026',
     offersDate: 'End of October 2026',
@@ -27,6 +27,23 @@ export const CONFIG = {
     degreePolicy: 'Zero Degree Prerequisite • Pure Vision & Craft Merit',
     mission: 'We are planning on nurturing the future of fashion.',
   },
+
+  // Official Salon 05 Shortlisted Finalists / Winners (in no particular order)
+  competitionWinners: [
+    { name: 'Vasu Pandita' },
+    { name: 'Tarakini Naidu' },
+    { name: 'Sneha Verma' },
+    { name: 'Samanvi Shenoy' },
+    { name: 'Anjali Ram' },
+    { name: 'Nishit Rai' },
+    { name: 'Gargi Deshpande' },
+    { name: 'Pallavi Bhat' },
+    { name: 'Angel Varghese' },
+    { name: 'Milan Ahluwalia' },
+  ],
+
+  // Inquiries email for winners/candidates
+  inquiriesEmail: 'teamferro30@gmail.com',
 
   // Google Form / Enquiries Link for General Hiring
   careersGoogleFormUrl: '#',
