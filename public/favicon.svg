@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <rect width="64" height="64" rx="14" fill="#050505" />
-  <rect width="62" height="62" x="1" y="1" rx="13" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+  <rect width="62" height="62" x="1" y="1" rx="13" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" />
   
-  <!-- Architectural Haute Monogram: FERRO "F" + Magnetic Ferrofluid Spike Geometry -->
-  <!-- Top Horizontal Bar -->
-  <path d="M16 16 H48 V23 H24 V28 H42 V35 H24 V48 H16 Z" fill="#F7F7F5" />
+  <!-- Architectural Monogram 'F' -->
+  <polygon points="15,13 24,13 24,51 15,47" fill="#FFFFFF" />
+  <polygon points="24,13 49,13 45,22 24,22" fill="#E5E5EA" />
+  <polygon points="24,29 42,29 38,37 24,37" fill="#D1D1D6" />
   
-  <!-- Chiseled Chrome Facet Highlight -->
-  <path d="M16 16 H48 L42 23 H24 L21 28 H16 Z" fill="#FFFFFF" fill-opacity="0.9" />
-  <path d="M24 28 H42 L38 35 H24 Z" fill="#D1D1D6" fill-opacity="0.8" />
-  
-  <!-- Magnetic Ferrofluid Vermilion Signal Dot -->
-  <circle cx="48" cy="48" r="4.5" fill="#FF3300" />
-  <circle cx="48" cy="48" r="6" fill="none" stroke="#FF3300" stroke-width="1" stroke-opacity="0.4" />
+  <!-- Vermilion Razor Edge -->
+  <polygon points="49,13 52,15 45,22" fill="#FF3300" />
+  <polygon points="42,29 45,31 38,37" fill="#FF3300" />
+
+  <!-- Magnetic Origin Point -->
+  <circle cx="49" cy="48" r="3.5" fill="#FF3300" />
 </svg>

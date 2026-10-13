@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" width="600" height="120">
+  <defs>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#E5E5EA" />
+      <stop offset="100%" stop-color="#C7C7CC" />
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="120" fill="#050505" />
+
+  <!-- Monogram Glyph 'F' on the left -->
+  <g transform="translate(24, 20) scale(0.48)">
+    <polygon points="46,36 74,36 74,164 46,150" fill="url(#silverGrad)" />
+    <polygon points="74,36 156,36 142,64 74,64" fill="url(#silverGrad)" />
+    <polygon points="74,88 132,88 120,114 74,114" fill="url(#silverGrad)" />
+    <polygon points="156,36 166,42 142,64" fill="#FF3300" />
+    <polygon points="132,88 140,93 120,114" fill="#FF3300" />
+    <circle cx="158" cy="154" r="5" fill="#FF3300" />
+  </g>
+
+  <!-- Typographic Wordmark -->
+  <!-- Letter F -->
+  <path d="M140 38 H172 V48 H152 V60 H168 V70 H152 V92 H140 Z" fill="#FFFFFF" />
+  
+  <!-- Letter E -->
+  <path d="M196 38 H228 V48 H208 V60 H224 V70 H208 V82 H228 V92 H196 Z" fill="#FFFFFF" />
+  
+  <!-- Letter R -->
+  <path d="M252 38 H280 C290 38 296 44 296 52 C296 59 291 64 282 66 L298 92 H284 L270 68 H264 V92 H252 Z M264 48 V58 H278 C282 58 284 56 284 53 C284 50 282 48 278 48 Z" fill="#FFFFFF" />
+  
+  <!-- Letter R -->
+  <path d="M320 38 H348 C358 38 364 44 364 52 C364 59 359 64 350 66 L366 92 H352 L338 68 H332 V92 H320 Z M332 48 V58 H346 C350 58 352 56 352 53 C352 50 350 48 346 48 Z" fill="#FFFFFF" />
+  
+  <!-- Letter O -->
+  <path d="M388 38 H418 C430 38 438 48 438 65 C438 82 430 92 418 92 H388 C376 92 368 82 368 65 C368 48 376 38 388 38 Z M389 48 C382 48 380 55 380 65 C380 75 382 82 389 82 H417 C424 82 426 75 426 65 C426 55 424 48 417 48 Z" fill="#FFFFFF" />
+
+  <!-- Vermilion Accent Dot -->
+  <circle cx="452" cy="87" r="4.5" fill="#FF3300" />
+
+  <!-- Subtitle Tagline -->
+  <text x="142" y="106" font-family="'Courier New', monospace" font-size="8.5" fill="#8E8E93" letter-spacing="4.5">HAUTE ATELIER · BENGALURU · 12°58′N 77°35′E</text>
+</svg>

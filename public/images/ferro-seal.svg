@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <path id="textCircle" d="M 150, 150 m -115, 0 a 115,115 0 1,1 230,0 a 115,115 0 1,1 -230,0" />
+    <linearGradient id="sealChrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#C7C7CC" />
+      <stop offset="100%" stop-color="#3A3A3C" />
+    </linearGradient>
+  </defs>
+
+  <rect width="300" height="300" fill="#050505" />
+
+  <!-- Outer Concentric Rings -->
+  <circle cx="150" cy="150" r="142" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.2" />
+  <circle cx="150" cy="150" r="136" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="3,3" />
+  <circle cx="150" cy="150" r="95" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+
+  <!-- Circular Running Text -->
+  <text fill="#8E8E93" font-family="'Courier New', monospace" font-size="8.8" letter-spacing="3.8" font-weight="bold">
+    <textPath href="#textCircle" startOffset="0%">
+      FERRO HAUTE ATELIER · BENGALURU · 12°58′N 77°35′E · 100% BOOTSTRAPPED · GEN Z ·
+    </textPath>
+  </text>
+
+  <!-- Central Brutalist 'F' Glyph -->
+  <g transform="translate(100, 95) scale(0.5)">
+    <polygon points="46,36 74,36 74,164 46,150" fill="url(#sealChrome)" />
+    <polygon points="74,36 156,36 142,64 74,64" fill="url(#sealChrome)" />
+    <polygon points="74,88 132,88 120,114 74,114" fill="url(#sealChrome)" />
+    <polygon points="156,36 166,42 142,64" fill="#FF3300" />
+    <polygon points="132,88 140,93 120,114" fill="#FF3300" />
+    <circle cx="158" cy="154" r="5" fill="#FF3300" />
+  </g>
+
+  <!-- Center Crosshairs -->
+  <line x1="150" y1="18" x2="150" y2="28" stroke="#FF3300" stroke-width="1.5" />
+  <line x1="150" y1="272" x2="150" y2="282" stroke="#FF3300" stroke-width="1.5" />
+  <line x1="18" y1="150" x2="28" y2="150" stroke="#FF3300" stroke-width="1.5" />
+  <line x1="272" y1="150" x2="282" y2="150" stroke="#FF3300" stroke-width="1.5" />
+</svg>

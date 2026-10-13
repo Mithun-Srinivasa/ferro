@@ -57,13 +57,18 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate, activeSection }) => 
           <div className="flex items-center gap-4">
             <button
               onClick={() => handleNavClick('hero')}
-              className="text-left group"
+              className="text-left group flex items-center gap-2.5"
             >
+              <img
+                src="/images/ferro-logo-mark.svg"
+                alt="FERRO Monogram"
+                className="w-6 h-6 object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+              />
               <span className="font-['Syne'] font-extrabold text-2xl tracking-tighter text-white group-hover:text-[#D1D1D6] transition-colors">
                 FERRO
               </span>
-              <span className="hidden sm:inline-block ml-3 font-mono text-[10px] text-zinc-400 tracking-widest uppercase">
-                ATELIER BLR • 12°58′N 77°35′E
+              <span className="hidden sm:inline-block ml-2 font-mono text-[10px] text-zinc-500 tracking-widest uppercase">
+                ATELIER BLR · 12°58′N 77°35′E
               </span>
             </button>
           </div>

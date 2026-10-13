@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Liquid Titanium Chrome Gradient -->
+    <linearGradient id="chromeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="35%" stop-color="#E5E5EA" />
+      <stop offset="70%" stop-color="#8E8E93" />
+      <stop offset="100%" stop-color="#1C1C1E" />
+    </linearGradient>
+    
+    <!-- Deep Obsidian Shadow -->
+    <linearGradient id="facetShadow" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2C2C2E" />
+      <stop offset="100%" stop-color="#0A0A0C" />
+    </linearGradient>
+
+    <!-- Subtle Vermilion Edge Glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#FF3300" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="200" height="200" fill="#050505" rx="20" />
+  <rect width="198" height="198" x="1" y="1" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" rx="19" />
+
+  <!-- BRUTALIST FERRO MONOGRAM 'F' -->
+  <!-- Main Vertical Stem with Kinetic Chiseled Taper -->
+  <polygon points="46,36 74,36 74,164 46,150" fill="url(#chromeGrad)" />
+  <polygon points="46,36 54,42 54,146 46,150" fill="#FFFFFF" opacity="0.6" />
+
+  <!-- Upper Crossbar - Razor Geometric Projection -->
+  <polygon points="74,36 156,36 142,64 74,64" fill="url(#chromeGrad)" />
+  <polygon points="74,36 156,36 148,42 74,42" fill="#FFFFFF" opacity="0.8" />
+  <polygon points="142,64 156,36 148,42 136,64" fill="url(#facetShadow)" />
+
+  <!-- Mid Crossbar - Asymmetric Blade -->
+  <polygon points="74,88 132,88 120,114 74,114" fill="url(#chromeGrad)" />
+  <polygon points="74,88 132,88 126,93 74,93" fill="#FFFFFF" opacity="0.7" />
+  <polygon points="120,114 132,88 126,93 116,114" fill="url(#facetShadow)" />
+
+  <!-- Ferrofluid Magnetic Kinetic Spikes -->
+  <polygon points="156,36 166,42 142,64" fill="#FF3300" opacity="0.85" filter="url(#glow)" />
+  <polygon points="132,88 140,93 120,114" fill="#FF3300" opacity="0.85" filter="url(#glow)" />
+
+  <!-- Precision Origin Signal Dot -->
+  <circle cx="158" cy="154" r="5" fill="#FF3300" filter="url(#glow)" />
+  <circle cx="158" cy="154" r="9" fill="none" stroke="#FF3300" stroke-width="0.75" opacity="0.4" />
+</svg>
