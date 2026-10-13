@@ -87,14 +87,14 @@ export const Manifesto: React.FC = () => {
             </p>
           </div>
 
-          {/* Column 3: Beyond Garments (Sculpted Accessories & Under 30 Engine) */}
+          {/* Column 3: Beyond Garments (Sculpted Accessories & Gen Z Collective) */}
           <div className="p-6 sm:p-8 bg-zinc-900/40 border border-white/10 space-y-6 relative group">
             <div className="font-mono text-xs text-zinc-500 tracking-widest flex items-center justify-between">
               <span>03</span>
               <span>[TOTALITY]</span>
             </div>
             <h3 className="font-['Syne'] text-2xl font-bold text-white leading-tight">
-              Garments, Metal &amp; Youth.
+              Garments, Metal &amp; Form.
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed font-sans">
               Garments, eyewear, hardware, and structural carry objects are conceived together from the same aesthetic vocabulary. Sculpted, tactile, and distinct.
@@ -106,7 +106,7 @@ export const Manifesto: React.FC = () => {
                 className="redacted cursor-pointer font-mono text-xs inline-block"
                 title="Tap to un-redact"
               >
-                {unredacted['r3'] ? 'EVERY PERSON UNDER 30.' : '█████████████████████████'}
+                {unredacted['r3'] ? 'COMPOSED SOLELY OF A GEN Z TEAM.' : '█████████████████████████'}
               </span>{' '}
               Shaping clothing for our generation.
             </p>
@@ -121,9 +121,9 @@ export const Manifesto: React.FC = () => {
             <span className="text-zinc-500 text-[11px]">BENGALURU</span>
           </div>
           <div className="space-y-1">
-            <span className="text-zinc-500 tracking-widest uppercase">GENERATION</span>
-            <div className="text-white text-base font-bold">&lt; 30 YEARS</div>
-            <span className="text-zinc-500 text-[11px]">YOUTH STANDARD</span>
+            <span className="text-zinc-500 tracking-widest uppercase">COLLECTIVE</span>
+            <div className="text-white text-base font-bold">100% GEN Z</div>
+            <span className="text-zinc-500 text-[11px]">STUDIO TEAM</span>
           </div>
           <div className="space-y-1">
             <span className="text-zinc-500 tracking-widest uppercase">CAPITAL</span>

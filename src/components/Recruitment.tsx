@@ -58,7 +58,7 @@ export const Recruitment: React.FC = () => {
               </div>
 
               <p className="text-zinc-300 font-sans text-sm sm:text-base max-w-xl leading-relaxed">
-                Scouting 14 minds across Design, Technology, and Operations for our Bengaluru atelier. Fully bootstrapped, youth-led, and uncompromising.
+                Scouting 14 minds across Design, Technology, and Operations for our Bengaluru atelier. 100% bootstrapped and composed solely of a Gen Z team.
               </p>
 
               {/* Quick Studio Pillars */}
@@ -66,8 +66,8 @@ export const Recruitment: React.FC = () => {
                 <div className="p-3 bg-zinc-950 border border-white/10 flex items-center gap-2.5">
                   <div className="w-1.5 h-1.5 bg-[#FF3300] rounded-full" />
                   <div>
-                    <div className="text-white font-bold">UNDER 30</div>
-                    <div className="text-zinc-500 text-[10px]">Youth-led standard</div>
+                    <div className="text-white font-bold">GEN Z ONLY</div>
+                    <div className="text-zinc-500 text-[10px]">Studio collective</div>
                   </div>
                 </div>
                 <div className="p-3 bg-zinc-950 border border-white/10 flex items-center gap-2.5">

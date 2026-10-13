@@ -68,7 +68,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-zinc-400 text-sm sm:text-base font-sans max-w-lg leading-relaxed"
           >
-            Bootstrapped in Bengaluru by 12 minds under 30. Uncompromising creative sovereignty over every garment and sculpted object.
+            Bootstrapped in Bengaluru by an entirely Gen Z team. Uncompromising creative sovereignty over every garment and sculpted object.
           </motion.p>
 
           {/* Action CTAs */}
@@ -126,13 +126,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <span className="text-[#FF3300]">✦</span>
           <span>NO MASS COMMERCIAL DILUTION</span>
           <span className="text-[#FF3300]">✦</span>
-          <span>12 CORE VISIONARIES UNDER 30</span>
+          <span>100% GEN Z COLLECTIVE</span>
           <span className="text-[#FF3300]">✦</span>
           <span>FIRST LAUNCH: Q1 2027</span>
           <span className="text-[#FF3300]">✦</span>
           <span>GARMENTS &amp; SCULPTED OBJECTS</span>
           <span className="text-[#FF3300]">✦</span>
-          <span>PARIS SALON COMPETITION NOW OPEN</span>
+          <span>SALON 05 SHORTLIST LIVE</span>
           <span className="text-[#FF3300]">✦</span>
           <span>FERRO ATELIER BENGALURU</span>
           <span className="text-[#FF3300]">✦</span>
