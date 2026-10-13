@@ -42,51 +42,46 @@ export const Recruitment: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Animated Recruitment Banner / Graphic */}
-        <div className="relative border-2 border-white/20 bg-black p-6 sm:p-12 overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8)]">
-          {/* Subtle Grid Watermark */}
-          <div className="absolute top-3 right-4 font-mono text-[10px] text-zinc-600 tracking-widest uppercase">
-            DOCUMENT CODE: REC-2026-BLR • 14 SEATS
-          </div>
-
+        <div className="relative border border-white/20 bg-black p-6 sm:p-12 overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8)]">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
             <div className="lg:col-span-8 space-y-6 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#FF3300]/15 border border-[#FF3300]/40 text-xs font-mono text-[#FF3300] tracking-widest uppercase font-bold">
-                <Flame className="w-3.5 h-3.5" />
-                <span>NATIONWIDE RECRUITMENT // BANGALORE HQ</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 text-xs font-mono text-zinc-300 tracking-widest uppercase">
+                <Flame className="w-3.5 h-3.5 text-[#FF3300]" />
+                <span>ATELIER RECRUITMENT // BENGALURU</span>
               </div>
 
-              {/* High-Impact Animated Graphic Typography */}
+              {/* High-Impact Typography */}
               <div className="space-y-1">
                 <h2 className="font-['Syne'] text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase leading-[0.9]">
                   WE WANT YOU.
                 </h2>
               </div>
 
-              <p className="text-zinc-300 font-sans text-sm sm:text-base max-w-2xl leading-relaxed">
-                We are a 12-person core unit in Bengaluru (including 3 international fashion degree alumni). To bring haute couture architecture to the street without compromising our bootstrapped sovereignty, we are scouting <strong>14 new members</strong> across Fashion Design, Engineering, Marketing, Finance, and Operations.
+              <p className="text-zinc-300 font-sans text-sm sm:text-base max-w-xl leading-relaxed">
+                Scouting 14 minds across Design, Technology, and Operations for our Bengaluru atelier. Fully bootstrapped, youth-led, and uncompromising.
               </p>
 
               {/* Quick Studio Pillars */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 font-mono text-xs">
-                <div className="p-3 bg-zinc-900/80 border border-white/10 flex items-center gap-3">
-                  <div className="w-2 h-2 bg-[#FF3300] rounded-full animate-ping" />
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 font-mono text-xs">
+                <div className="p-3 bg-zinc-950 border border-white/10 flex items-center gap-2.5">
+                  <div className="w-1.5 h-1.5 bg-[#FF3300] rounded-full" />
                   <div>
-                    <div className="text-white font-bold">UNDER 30 CULTURE</div>
+                    <div className="text-white font-bold">UNDER 30</div>
                     <div className="text-zinc-500 text-[10px]">Youth-led standard</div>
                   </div>
                 </div>
-                <div className="p-3 bg-zinc-900/80 border border-white/10 flex items-center gap-3">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full" />
+                <div className="p-3 bg-zinc-950 border border-white/10 flex items-center gap-2.5">
+                  <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
                   <div>
-                    <div className="text-white font-bold">BANGALORE ATELIER</div>
-                    <div className="text-zinc-500 text-[10px]">In-person collaboration</div>
+                    <div className="text-white font-bold">BENGALURU</div>
+                    <div className="text-zinc-500 text-[10px]">On-site collaboration</div>
                   </div>
                 </div>
-                <div className="p-3 bg-zinc-900/80 border border-white/10 flex items-center gap-3">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full" />
+                <div className="p-3 bg-zinc-950 border border-white/10 flex items-center gap-2.5">
+                  <div className="w-1.5 h-1.5 bg-blue-400 rounded-full" />
                   <div>
-                    <div className="text-white font-bold">ZERO VENTURE DEBT</div>
-                    <div className="text-zinc-500 text-[10px]">100% Bootstrapped</div>
+                    <div className="text-white font-bold">BOOTSTRAPPED</div>
+                    <div className="text-zinc-500 text-[10px]">100% Sovereign</div>
                   </div>
                 </div>
               </div>
@@ -94,7 +89,7 @@ export const Recruitment: React.FC = () => {
 
             {/* Rotating Dynamic "NOW SCOUTING" Circle */}
             <div className="lg:col-span-4 flex justify-center lg:justify-end">
-              <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full border border-dashed border-white/30 flex items-center justify-center p-6 text-center group hover:border-[#FF3300] transition-colors bg-gradient-to-br from-zinc-950 to-black shadow-[0_0_30px_rgba(255,255,255,0.04)]">
+              <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-full border border-dashed border-white/20 flex items-center justify-center p-6 text-center group hover:border-[#FF3300] transition-colors bg-gradient-to-br from-zinc-950 to-black shadow-[0_0_30px_rgba(255,255,255,0.04)]">
                 {/* Rotating Outer Ring */}
                 <motion.div
                   animate={{ rotate: 360 }}
@@ -103,8 +98,8 @@ export const Recruitment: React.FC = () => {
                 />
 
                 <div className="space-y-2 z-10">
-                  <span className="font-mono text-[10px] text-[#FF3300] tracking-widest uppercase block animate-pulse">
-                    NOW SCOUTING
+                  <span className="font-mono text-[10px] text-[#FF3300] tracking-widest uppercase block">
+                    OPEN ROLES
                   </span>
 
                   <AnimatePresence mode="wait">
@@ -127,7 +122,7 @@ export const Recruitment: React.FC = () => {
 
                   <div className="pt-1">
                     <span className="inline-block px-2 py-0.5 bg-white/10 text-[9px] font-mono text-zinc-300 uppercase tracking-widest">
-                      14 TOTAL OPENINGS
+                      14 POSITIONS
                     </span>
                   </div>
                 </div>
@@ -135,15 +130,15 @@ export const Recruitment: React.FC = () => {
             </div>
           </div>
 
-          {/* SINGLE HIGH-IMPACT GOOGLE FORM APPLICATION BUTTON */}
-          <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          {/* APPLICATION ACTION */}
+          <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="space-y-1 text-left">
               <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
                 <MapPin className="w-3.5 h-3.5 text-[#FF3300]" />
-                <span>BANGALORE HQ • ON-SITE ATELIER POSITIONS</span>
+                <span>BENGALURU HQ · ON-SITE ROLES</span>
               </div>
-              <p className="font-sans text-xs sm:text-sm text-zinc-300">
-                Applications for all 14 roles (Fashion Design, Engineering, Marketing, Finance &amp; Deployment) are handled via our central Google Form.
+              <p className="font-sans text-xs text-zinc-400">
+                Open across Design, Engineering, Marketing, Finance, and Operations.
               </p>
             </div>
 
@@ -154,7 +149,7 @@ export const Recruitment: React.FC = () => {
               onClick={handleApplyClick}
               className="px-8 py-4 bg-white text-black hover:bg-zinc-200 font-mono text-xs font-black tracking-widest uppercase transition-all flex items-center justify-center gap-2.5 shadow-[0_0_25px_rgba(255,255,255,0.25)] shrink-0 group w-full sm:w-auto"
             >
-              <span>APPLY VIA GOOGLE FORM</span>
+              <span>APPLY FOR ROLES</span>
               <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </a>
           </div>

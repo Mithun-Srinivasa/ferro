@@ -19,15 +19,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* Top Meta Strip */}
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 pt-4 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-zinc-400 border-b border-white/5 pb-3">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 pt-4 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-zinc-500 border-b border-white/5 pb-3">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#FF3300] animate-ping" />
-          <span className="tracking-widest uppercase text-white font-semibold">STUDIO TRANSMISSION // 14 OCT 2026 • RESULTS DECLARED</span>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#FF3300]" />
+          <span className="tracking-widest uppercase text-zinc-300">FERRO ATELIER // BENGALURU</span>
         </div>
-        <div className="flex items-center gap-4 text-[11px] tracking-wider">
-          <span className="hidden sm:inline">ORIGIN: BENGALURU, INDIA</span>
-          <span>AUTONOMY: 100% BOOTSTRAPPED</span>
-          <span className="text-[#FF3300] font-bold">DEBUT: &lt; Q2 2027</span>
+        <div className="flex items-center gap-4 text-[11px] tracking-wider text-zinc-500">
+          <span>SALON 05 SHORTLIST LIVE</span>
+          <span>100% BOOTSTRAPPED</span>
+          <span className="text-[#FF3300]">DEBUT &lt; Q2 2027</span>
         </div>
       </div>
 
@@ -42,7 +42,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 text-xs font-mono tracking-widest text-zinc-300"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#FF3300]" />
-            <span>AVANT-GARDE ATELIER FOR EVERYDAY HUMANS</span>
+            <span>HAUTE COUTURE FOR PHYSICAL LIFE</span>
           </motion.div>
 
           <motion.div
@@ -68,7 +68,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-zinc-400 text-sm sm:text-base font-sans max-w-lg leading-relaxed"
           >
-            Bootstrapped in Bengaluru by 12 minds under 30. We reject fast trend cycles and mass dilution to retain pure creative sovereignty over every garment and sculpted object.
+            Bootstrapped in Bengaluru by 12 minds under 30. Uncompromising creative sovereignty over every garment and sculpted object.
           </motion.p>
 
           {/* Action CTAs */}
@@ -85,10 +85,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               }}
               className="px-6 py-4 bg-white text-black font-mono text-xs font-bold tracking-widest uppercase hover:bg-zinc-200 transition-all flex items-center justify-center gap-2 group shadow-[0_0_25px_rgba(255,255,255,0.2)]"
             >
-              <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#FF3300] animate-ping" />
-                <span>SALON 05 // TOP 10 WINNERS</span>
-              </span>
+              <span>SALON 05 SHORTLIST</span>
               <Compass className="w-4 h-4 group-hover:rotate-45 transition-transform" />
             </button>
 
@@ -99,7 +96,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               }}
               className="px-6 py-4 bg-transparent border border-white/20 hover:border-white text-white font-mono text-xs tracking-widest uppercase transition-all flex items-center justify-center gap-2"
             >
-              <span>WE WANT YOU // HIRING</span>
+              <span>OPENINGS</span>
               <ShieldCheck className="w-4 h-4 text-[#FF3300]" />
             </button>
           </motion.div>

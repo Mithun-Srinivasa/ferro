@@ -24,14 +24,14 @@ export const Manifesto: React.FC = () => {
           <div>
             <div className="font-mono text-xs text-[#FF3300] tracking-widest uppercase mb-2 flex items-center gap-2">
               <Terminal className="w-3.5 h-3.5" />
-              <span>SECTION 01 // THE CODEX</span>
+              <span>THE CODEX</span>
             </div>
             <h2 className="font-['Syne'] text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
               PHILOSOPHY OF THE OBJECT.
             </h2>
           </div>
-          <div className="font-mono text-xs text-zinc-400 max-w-xs">
-            [CLASSIFIED DISPATCH • TAP HIGHLIGHTED BLOCKS TO UN-REDACT CLASSIFIED CODEX ENTRIES]
+          <div className="font-mono text-xs text-zinc-500">
+            [TAP HIGHLIGHTED BARS TO REVEAL]
           </div>
         </div>
 
@@ -40,75 +40,75 @@ export const Manifesto: React.FC = () => {
           {/* Column 1: The Bridge Between High Fashion & Reality */}
           <div className="p-6 sm:p-8 bg-zinc-900/40 border border-white/10 space-y-6 relative group">
             <div className="font-mono text-xs text-zinc-500 tracking-widest flex items-center justify-between">
-              <span>PRINCIPIUM 01</span>
+              <span>01</span>
               <span>[THE BRIDGE]</span>
             </div>
             <h3 className="font-['Syne'] text-2xl font-bold text-white leading-tight">
-              Bridging Runway Extremes with Daily Flesh.
+              Runway Form. Daily Movement.
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed font-sans">
-              For decades, high fashion has locked its most radical silhouettes behind velvet ropes and exhibition glass. Outfits made exclusively for runway models that crumble the second you attempt to navigate a subway, a crowded street, or ordinary rain.
+              High fashion often locks its most radical silhouettes behind museum glass — fragile garments that fail in real weather, streets, or transit.
             </p>
             <p className="text-zinc-300 text-sm leading-relaxed">
-              We engineer the bridge: simplifying the architectural silhouette just enough for uninhibited movement,{' '}
+              We engineer the bridge: refining architectural structure for physical ease,{' '}
               <span
                 onClick={() => toggleRedact('r1')}
                 className="redacted cursor-pointer font-mono text-xs inline-block"
                 title="Tap to un-redact"
               >
-                {unredacted['r1'] ? 'WITHOUT SURRENDERING ONE DROP OF FLASHINESS.' : '██████████████████████████████████████'}
+                {unredacted['r1'] ? 'WITHOUT COMPROMISING DRAMA.' : '████████████████████████████████'}
               </span>{' '}
-              High fashion made for humans who actually live in the world.
+              High fashion constructed for the living world.
             </p>
           </div>
 
           {/* Column 2: Total Creative Sovereignty (Bootstrapped 2-Year Shield) */}
           <div className="p-6 sm:p-8 bg-zinc-900/40 border border-white/10 space-y-6 relative group">
             <div className="font-mono text-xs text-zinc-500 tracking-widest flex items-center justify-between">
-              <span>PRINCIPIUM 02</span>
-              <span>[AUTONOMY]</span>
+              <span>02</span>
+              <span>[SOVEREIGNTY]</span>
             </div>
             <h3 className="font-['Syne'] text-2xl font-bold text-white leading-tight">
-              The Two-Year Bootstrapped Shield.
+              Two-Year Bootstrapped Shield.
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed font-sans">
-              We took zero venture capital money. We intend to stay completely bootstrapped for another two years. Why? Because the moment an external boardroom dictates delivery quotas, pure design becomes mass-market beige.
+              Zero venture debt. Zero external boardrooms. When investor spreadsheets dictate delivery quotas, design is diluted into commercial beige.
             </p>
             <p className="text-zinc-300 text-sm leading-relaxed">
-              We will not mass produce. Our maiden launch arrives{' '}
+              We reject mass manufacturing. Our maiden collection arrives{' '}
               <span
                 onClick={() => toggleRedact('r2')}
                 className="redacted cursor-pointer font-mono text-xs inline-block"
                 title="Tap to un-redact"
               >
-                {unredacted['r2'] ? 'BEFORE Q2 2027 UNDER ZERO LABELS.' : '████████████████████████████'}
+                {unredacted['r2'] ? 'BEFORE Q2 2027 INDEPENDENTLY.' : '████████████████████████████'}
               </span>{' '}
-              Every millimeter will answer solely to the atelier's obsession, not investor spreadsheets.
+              Every seam answers solely to the atelier.
             </p>
           </div>
 
           {/* Column 3: Beyond Garments (Sculpted Accessories & Under 30 Engine) */}
           <div className="p-6 sm:p-8 bg-zinc-900/40 border border-white/10 space-y-6 relative group">
             <div className="font-mono text-xs text-zinc-500 tracking-widest flex items-center justify-between">
-              <span>PRINCIPIUM 03</span>
+              <span>03</span>
               <span>[TOTALITY]</span>
             </div>
             <h3 className="font-['Syne'] text-2xl font-bold text-white leading-tight">
-              Garments, Metal &amp; The Under-30 Pulse.
+              Garments, Metal &amp; Youth.
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed font-sans">
-              We are not just designing clothes. Accessories, eyewear, architectural hardware, and structural carry objects are conceived simultaneously. Nothing gaudy; everything elevated, sculpted, and distinct from industry repetition.
+              Garments, eyewear, hardware, and structural carry objects are conceived together from the same aesthetic vocabulary. Sculpted, tactile, and distinct.
             </p>
             <p className="text-zinc-300 text-sm leading-relaxed">
-              Our core atelier comprises 12 members in Bengaluru — including 3 international fashion alumni —{' '}
+              Our core unit comprises 12 members in Bengaluru —{' '}
               <span
                 onClick={() => toggleRedact('r3')}
                 className="redacted cursor-pointer font-mono text-xs inline-block"
                 title="Tap to un-redact"
               >
-                {unredacted['r3'] ? 'EVERY SINGLE PERSON IS YOUNGER THAN 30.' : '████████████████████████████████████'}
+                {unredacted['r3'] ? 'EVERY PERSON UNDER 30.' : '█████████████████████████'}
               </span>{' '}
-              We build for the generation rewriting culture.
+              Shaping clothing for our generation.
             </p>
           </div>
         </div>
@@ -116,24 +116,24 @@ export const Manifesto: React.FC = () => {
         {/* Studio Data Matrix Banner */}
         <div className="p-6 bg-black border border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-6 font-mono text-xs">
           <div className="space-y-1">
-            <span className="text-zinc-500 tracking-widest uppercase">CORE UNIT</span>
-            <div className="text-white text-base font-bold">12 VISIONARIES</div>
-            <span className="text-zinc-400 text-[11px]">3 EX-GLOBAL MAISON</span>
+            <span className="text-zinc-500 tracking-widest uppercase">CORE TEAM</span>
+            <div className="text-white text-base font-bold">12 MEMBERS</div>
+            <span className="text-zinc-500 text-[11px]">BENGALURU</span>
           </div>
           <div className="space-y-1">
-            <span className="text-zinc-500 tracking-widest uppercase">AGE THRESHOLD</span>
+            <span className="text-zinc-500 tracking-widest uppercase">GENERATION</span>
             <div className="text-white text-base font-bold">&lt; 30 YEARS</div>
-            <span className="text-zinc-400 text-[11px]">YOUTH DISRUPTION</span>
+            <span className="text-zinc-500 text-[11px]">YOUTH STANDARD</span>
           </div>
           <div className="space-y-1">
-            <span className="text-zinc-500 tracking-widest uppercase">FINANCIAL MODEL</span>
-            <div className="text-[#FF3300] text-base font-bold">100% BOOTSTRAPPED</div>
-            <span className="text-zinc-400 text-[11px]">2-YEAR LOCKED AUTONOMY</span>
+            <span className="text-zinc-500 tracking-widest uppercase">CAPITAL</span>
+            <div className="text-[#FF3300] text-base font-bold">BOOTSTRAPPED</div>
+            <span className="text-zinc-500 text-[11px]">100% AUTONOMOUS</span>
           </div>
           <div className="space-y-1">
-            <span className="text-zinc-500 tracking-widest uppercase">FIRST REVEAL</span>
-            <div className="text-white text-base font-bold">Q1 2027 TARGET</div>
-            <span className="text-zinc-400 text-[11px]">NO PRE-COMMERCIAL LABELS</span>
+            <span className="text-zinc-500 tracking-widest uppercase">FIRST DEBUT</span>
+            <div className="text-white text-base font-bold">&lt; Q2 2027</div>
+            <span className="text-zinc-500 text-[11px]">LIMITED RUN</span>
           </div>
         </div>
       </div>
